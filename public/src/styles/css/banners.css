@@ -1,0 +1,103 @@
+.btn.f-btn.button-sm {
+  min-height: 37px !important;
+  border: none;
+}
+
+.banner-wrapper {
+  margin-bottom: 30px;
+  display: none;
+  /*display: flex;*/
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.banner-wrapper .container {
+  width: 100%;
+}
+
+.banner-item {
+  width: 100%;
+  position: relative;
+  margin: 0 auto;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #FFF;
+  box-shadow: 0px 0px 2px 0px #a3a3a333, 0px 4px 12px 0px #a3a3a333;
+  animation: show 2s ease-in-out;
+}
+
+.banner-item:nth-child(n+2) {
+  display: none;
+}
+
+.banner-item p {
+  line-height: 1;
+}
+
+.banner-item .container {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.banner-item .row {
+  margin: 0 !important;
+}
+
+.banner-item .modal-block-content {
+  padding: 0 !important;
+}
+
+.banner-item .modal-block-content .builder-item.part-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.card-img {
+  width: 30%;
+  height: 150px;
+  margin-bottom: 0 !important;
+  margin-right: 20px;
+  overflow: hidden;
+  float: left;
+}
+
+.card-img > div {
+  height: 100%;
+}
+
+.card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.banner-link {
+  display: block;
+  width: 100%;
+  padding: 6px 0;
+  border-radius: 10px;
+  background: #FFF;
+  text-align: center;
+  color: #000;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 420px) {
+  .card-img {
+    height: 120px;
+    width: 90px;
+    margin-right: 15px;
+  }
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
