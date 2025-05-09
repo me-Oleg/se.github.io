@@ -1,22 +1,22 @@
-@import "./vars";
-@import "./mixins";
-@import "./media";
+@use "./vars" as vars;
+@use "./mixins" as mixins;
+@use "./media";
 
 * {
-    font-family: --main-font;
+    font-family: vars.$main-font;
     scrollbar-width: thin;
-    scrollbar-color: --scrollbar-thumb --scrollbar-track;
+    scrollbar-color: vars.$scrollbar-thumb vars.$scrollbar-track;
 
     &::-webkit-scrollbar {
         width: 3px;
     }
 
     &::-webkit-scrollbar-track {
-        background: --scrollbar-track;
+        background: vars.$scrollbar-track;
     }
 
     &::-webkit-scrollbar-thumb {
-        background-color: --scrollbar-thumb;
+        background-color: vars.$scrollbar-thumb;
         border-radius: 10px;
     }
 
@@ -34,7 +34,7 @@ html {
 body {
     display: none;
     opacity: 0;
-    background: --bg-color;
+    background: vars.$bg-color;
 }
 
 .show {
@@ -66,12 +66,12 @@ body {
 }
 
 .mobile-icon {
-    @include flex-col-nowrap-center-between;
+    @include mixins.flex-col-nowrap-center-between;
 
     height: 50px;
 
     a {
-        @include flex-col-nowrap-center;
+        @include mixins.flex-col-nowrap-center;
 
         width: 40px;
         height: 40px;
@@ -94,7 +94,7 @@ body {
 
 .control-panel-label,
 .controls-buttons {
-    @include flex-row-nowrap-start;
+    @include mixins.flex-row-nowrap-start;
 }
 
 .control-panel-label {
@@ -108,18 +108,18 @@ body {
 .controls {
     &-icon {
         svg {
-            fill: --second-color;
+            fill: vars.$second-color;
             animation: rotate 10s infinite linear;
         }
     }
 
     &-title .control-item:hover {
-        color: --second-color;
+        color: vars.$second-color;
     }
 }
 
 .control-item {
-    color: --text-secondary;
+    color: vars.$text-secondary;
     font-size: 18px;
     font-weight: 600;
 }
@@ -135,17 +135,17 @@ body {
         &.short {
             margin-left: 70px;
             padding-left: 40px;
-            transition: --fast-transition;
+            transition: vars.$fast-transition;
         }
     }
 }
 
 .gc-account-leftbar {
-    @include flex-col-nowrap-start-between;
+    @include mixins.flex-col-nowrap-start-between;
 
     width: 200px;
     background: #FFF;
-    transition: --fast-transition;
+    transition: vars.$fast-transition;
 
     * {
         font-size: 16px;
@@ -189,9 +189,9 @@ body {
                     top: 0;
                     padding: 20px;
                     border-radius: 15px;
-                    box-shadow: --main-shadow;
+                    box-shadow: vars.$main-shadow;
                     left: calc(100% + 20px);
-                    background: --third-color;
+                    background: vars.$third-color;
 
                     .custom-submenu-item {
                         padding: 7px 15px;
@@ -229,7 +229,7 @@ body {
         background: #FFDABB;
 
         svg {
-            fill: --second-color;
+            fill: vars.$second-color;
         }
     }
 }
@@ -286,22 +286,22 @@ body {
         }
 
         &:not(.active) .menu-item-wrapper:hover .menu-item-point {
-            color: --second-color;
+            color: vars.$second-color;
         }
 
         &.active {
             svg {
-                fill: --third-color;
+                fill: vars.$third-color;
             }
 
             .menu-item {
                 &-point {
-                    color: --third-color;
+                    color: vars.$third-color;
                 }
 
                 &-wrapper {
-                    background: --main-color;
-                    box-shadow: --main-shadow;
+                    background: vars.$main-color;
+                    box-shadow: vars.$main-shadow;
                 }
             }
         }
@@ -322,7 +322,7 @@ body {
         overflow: hidden;
         border-radius: 10px;
         cursor: pointer;
-        color: --text-secondary;
+        color: vars.$text-secondary;
         transition: 0.2s all linear;
 
         &:hover,
@@ -353,7 +353,7 @@ body {
 
 .menu-item-wrapper:hover svg,
 .custom-menu-item:not(.active):hover svg {
-    fill: --second-color;
+    fill: vars.$second-color;
 }
 
 .custom-submenu {
@@ -384,7 +384,7 @@ body {
             border-left: none;
 
             a {
-                color: --second-color;
+                color: vars.$second-color;
             }
         }
     }
@@ -397,10 +397,10 @@ body {
     justify-content: flex-start;
     width: 100%;
     height: 100%;
-    color: --text-secondary;
+    color: vars.$text-secondary;
 
     &:hover {
-        color: --second-color;
+        color: vars.$second-color;
     }
 
     &:not(:nth-last-child(1)) {
@@ -423,7 +423,7 @@ body {
         width: 100%;
         position: relative;
         margin: 0 auto;
-        transition: --fast-transition;
+        transition: vars.$fast-transition;
     }
 
     tbody {
@@ -451,11 +451,11 @@ body {
                 padding: 20px 30px !important;
                 background: #FFF;
                 border-radius: 15px;
-                box-shadow: --main-shadow;
+                box-shadow: vars.$main-shadow;
                 overflow: hidden;
 
                 &:hover {
-                    background: --third-color;
+                    background: vars.$third-color;
                     box-shadow: 0 4px 24px #0000002b;
                 }
             }
@@ -463,7 +463,7 @@ body {
             a {
                 display: block;
                 width: 100%;
-                color: --second-color;
+                color: vars.$second-color;
 
                 b {
                     display: block;
@@ -477,7 +477,7 @@ body {
     .stream-title {
         font-size: 18px;
         font-weight: 400;
-        color: --second-color;
+        color: vars.$second-color;
     }
 }
 
@@ -485,16 +485,16 @@ body {
     background-color: #FFF0 !important;
 
     * {
-        transition: --fast-transition;
+        transition: vars.$fast-transition;
     }
 
     li {
         margin: 0 0 20px 0;
         border-radius: 15px !important;
-        box-shadow: --main-shadow;
+        box-shadow: vars.$main-shadow;
 
         &:hover {
-            background: --third-color;
+            background: vars.$third-color;
             box-shadow: 0 4px 24px #0000002b;
         }
 
@@ -503,7 +503,7 @@ body {
             font-size: 18px;
             font-weight: 500;
             line-height: 1.2;
-            color: --second-color;
+            color: vars.$second-color;
         }
 
         .description {
@@ -525,7 +525,7 @@ body {
         .info {
             margin-left: 15px;
             padding: 0 20px;
-            background: --third-color !important;
+            background: vars.$third-color !important;
         }
 
         &.user-state {
@@ -535,7 +535,7 @@ body {
             }
 
             &-has_mission a {
-                background: --second-color !important;
+                background: vars.$second-color !important;
             }
 
             &-not_reached a {
@@ -578,18 +578,18 @@ body {
     min-height: 60px;
     margin-bottom: 15px;
     padding: 0 10px;
-    background: --main-color;
-    box-shadow: --main-shadow;
+    background: vars.$main-color;
+    box-shadow: vars.$main-shadow;
     border: none;
     border-radius: 15px;
     line-height: 1.2;
-    color: --third-color;
+    color: vars.$third-color;
     font-size: 14px;
 }
 
 .breadcrumbs a {
     font-size: 18px;
-    color: --second-color;
+    color: vars.$second-color;
 }
 
 .alert-message {
@@ -599,8 +599,8 @@ body {
     width: 100%;
     padding: 20px 30px;
     transform: translate(50%, -50%);
-    background: --third-color;
-    box-shadow: --main-shadow;
+    background: vars.$third-color;
+    box-shadow: vars.$main-shadow;
     border-radius: 15px;
     z-index: 1000;
     display: none;
@@ -618,7 +618,7 @@ body {
 
     &-title {
         font-size: 22px;
-        color: --second-color;
+        color: vars.$second-color;
         margin-bottom: 10px;
     }
 
@@ -637,8 +637,8 @@ body {
         flex-wrap: nowrap;
         width: 100%;
         padding: 0 20px;
-        background: --main-color;
-        color: --third-color;
+        background: vars.$main-color;
+        color: vars.$third-color;
         font-size: 20px;
         font-weight: 500;
     }

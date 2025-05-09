@@ -12,11 +12,11 @@ import size from 'gulp-size';
 // Путь к файлам
 const paths = {
     styles: {
-        src: 'public/src/styles/scss/*.scss',
+        src: 'public/src/styles/scss/**/*.scss',
         dest: 'public/build/css'
     },
     scripts: {
-        src: 'public/src/scripts/*.js',
+        src: 'public/src/scripts/**/*.js',
         dest: 'public/build/js'
     }
 };
