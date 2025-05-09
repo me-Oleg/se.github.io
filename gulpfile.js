@@ -1,65 +1,69 @@
 import gulp from 'gulp';
 import { src, dest, watch, series, parallel } from 'gulp';
-
-import sass from 'gulp-sass';
 import dartSass from 'gulp-dart-sass';
-import autoprefixer from 'gulp-autoprefixer';
 import sourcemaps from 'gulp-sourcemaps';
-import uglify from 'gulp-uglify';
 import concat from 'gulp-concat';
+import cleanCSS from 'gulp-clean-css';
+import uglify from 'gulp-uglify';
 import eslint from 'gulp-eslint';
+import autoprefixer from 'gulp-autoprefixer';
 import size from 'gulp-size';
 
 // Путь к файлам
 const paths = {
     styles: {
-        src: 'src/scss/**/*.scss',
-        dest: 'build/css'
+        src: 'public/src/styles/scss/*.scss',
+        dest: 'public/build/css'
     },
     scripts: {
-        src: 'src/js/**/*.js',
-        dest: 'build/js'
+        src: 'public/src/scripts/*.js',
+        dest: 'public/build/js'
     }
 };
 
 // Задача для компиляции SASS
-export const styles = () => {
+const styles = () => {
     return src(paths.styles.src)
+        .pipe(size({ title: 'Размер файлов до обработки CSS:' })) 
         .pipe(sourcemaps.init())
         .pipe(dartSass().on('error', dartSass.logError))
         .pipe(autoprefixer())
+        .pipe(concat('main-style.css'))
+        .pipe(cleanCSS())
         .pipe(sourcemaps.write('.'))
         .pipe(dest(paths.styles.dest))
-        .pipe(size());
+        .pipe(size({ title: 'Размер файлов после обработки CSS:' }))
 };
 
 // Задача для обработки JavaScript
-export const scripts = () => {
+const scripts = () => {
     return src(paths.scripts.src)
+        .pipe(size({ title: 'Размер файлов до обработки JS:' }))
         .pipe(sourcemaps.init())
-        .pipe(concat('main.js'))
         .pipe(uglify())
         .pipe(sourcemaps.write('.'))
         .pipe(dest(paths.scripts.dest))
-        .pipe(size());
+        .pipe(size({ title: 'Размер файлов после обработки JS:' }))
 };
 
 // Задача для линтинга JavaScript
-export const lint = () => {
+const lint = () => {
     return src(paths.scripts.src)
+        .pipe(size({ title: 'Размер файлов до линтинга JS:' }))
         .pipe(eslint())
         .pipe(eslint.format())
-        .pipe(eslint.failAfterError());
+        .pipe(eslint.failAfterError())
+        .pipe(size({ title: 'Размер файлов после линтинга JS:' }))
 };
 
 // Задача для наблюдения за изменениями
-export const watchFiles = () => {
+const watchFiles = () => {
     watch(paths.styles.src, styles);
-    watch(paths.scripts.src, series(lint, scripts));
+    watch(paths.scripts.src, series(lint, scripts))
 };
 
 // Основная задача
-export const build = series(parallel(styles, scripts));
+const build = series(parallel(styles, scripts))
 
 // Экспорт задач
-export default series(build, watchFiles);
+export { build, watchFiles }
