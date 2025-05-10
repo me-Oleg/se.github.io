@@ -1,5 +1,5 @@
 @media (max-width: 768px) {
-    
+
     body {
         padding-top: 0 !important;
     }
@@ -49,19 +49,22 @@
                 }
             }
 
-            .mobile-icon {
-                display: flex;
-                background: var(--third-color);
-                border-radius: 0 0 20px 20px;
-            }
+            .mobile {
 
-            .mobile-menu {
-                display: none;
+                &-icon {
+                    display: flex;
+                    background: var(--third-color);
+                    border-radius: 0 0 20px 20px;
+                }
 
-                &.custom-menu {
-                    padding: 20px 10px;
-                    border: 1px solid #d7d7d7;
-                    border-radius: 30px;
+                &-menu {
+                    display: none;
+    
+                    &.custom-menu {
+                        padding: 20px 10px;
+                        border: 1px solid #d7d7d7;
+                        border-radius: 30px;
+                    }
                 }
             }
 
