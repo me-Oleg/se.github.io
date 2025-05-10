@@ -20,7 +20,7 @@
 
     .gc-main-content.with-left-menu.account-page-content {
         margin-left: 0px !important;
-        padding: 0;
+        padding: 0 !important;
     }
 
     .gc-page-nav-items-menu,
@@ -46,6 +46,21 @@
 
                 .custom-menu {
                     display: block;
+
+                    &-item {
+                        width: 100%;
+
+                        .menu-item-name.disabled {
+                            width: 100%;
+                            margin-left: 15px;
+                            opacity: 1;
+                            color: #979797;
+
+                            &:hover {
+                                color: vars.$second-color;
+                            }
+                        }
+                    }
                 }
             }
 
