@@ -1,3 +1,5 @@
+@use "./vars" as vars;
+
 @media (max-width: 768px) {
 
     body {
@@ -8,7 +10,7 @@
     .gc-account-leftbar {
         height: 50px;
         top: 0;
-        background: var(--third-color);
+        background: vars.$third-color;
     }
 
     .gc-account-leftbar {
@@ -68,7 +70,7 @@
 
                 &-icon {
                     display: flex;
-                    background: var(--third-color);
+                    background: vars.$third-color;
                     border-radius: 0 0 20px 20px;
                 }
 
@@ -134,11 +136,11 @@
                 background: #fff0;
 
                 .menu-item-point {
-                    color: var(--main-color);
+                    color: vars.$main-color;
                 }
 
                 svg {
-                    fill: var(--main-color);
+                    fill: vars.$main-color;
                 }
 
                 .menu-item-wrapper {
