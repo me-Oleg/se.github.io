@@ -8,6 +8,7 @@ import uglify from 'gulp-uglify';
 import eslint from 'gulp-eslint';
 import autoprefixer from 'gulp-autoprefixer';
 import size from 'gulp-size';
+import { deleteSync } from 'del';
 
 // Путь к файлам
 const paths = {
@@ -19,6 +20,14 @@ const paths = {
         src: 'public/src/scripts/**/*.js',
         dest: 'public/build/js'
     }
+};
+
+// Задача для удаления старых файлов
+const clean = () => {
+    return new Promise((resolve) => {
+        deleteSync([paths.styles.dest, paths.scripts.dest]);
+        resolve();
+    });
 };
 
 // Задача для компиляции SASS
@@ -63,7 +72,7 @@ const watchFiles = () => {
 };
 
 // Основная задача
-const build = series(parallel(styles, scripts))
+const build = series(clean, parallel(styles, scripts))
 
 // Экспорт задач
 export { build, watchFiles }
