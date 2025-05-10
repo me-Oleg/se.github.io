@@ -532,26 +532,29 @@ body {
             line-height: 1.2;
         }
 
-        .user-state-label {
-            margin-bottom: 15px;
-            font-weight: 400;
-            font-size: 10px;
-            text-transform: uppercase;
-        }
-
         .state-icon-block,
         .item-image {
             display: none;
         }
 
-        .user-state-bg {
-            background: #FFF0;
-        }
+        .user-state {
 
-        .info {
-            margin-left: 15px;
-            padding: 0 20px;
-            background: #FFF !important;
+            &-bg {
+                background: #FFF0;
+    
+                .info {
+                    margin-left: 15px;
+                    padding: 0 20px;
+                    background: #FFF !important;
+                }
+            }
+
+            &-label {
+                margin-bottom: 15px;
+                font-weight: 400;
+                font-size: 10px;
+                text-transform: uppercase;
+            }
         }
 
         &.user-state {
