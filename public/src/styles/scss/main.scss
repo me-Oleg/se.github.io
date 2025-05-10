@@ -2,6 +2,10 @@
 @use "./mixins" as mixins;
 @use "./media";
 
+/*
+  background: https://fs.getcourse.ru/fileservice/file/download/a/68513/sc/229/h/e40cde29bd80ae4a76402a4b325294cf.webp
+*/
+
 * {
     font-family: vars.$main-font;
     scrollbar-width: thin;
@@ -43,14 +47,27 @@ body {
 }
 
 .visible {
-    display: block;
-    height: auto;
+    display: block !important;
+    height: auto !important;
     width: 100%;
 }
 
 .hidden-menu {
     display: none !important;
     user-select: none;
+}
+
+.bokeh-background {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100vw;
+    z-index: -2;
+
+    .bokeh-canvas {
+        opacity: .1;
+    }
 }
 
 .gc-account-user-menu,
@@ -449,14 +466,22 @@ body {
                 height: auto;
                 margin: 0 auto;
                 padding: 20px 30px !important;
-                background: #FFF;
+                background: #FFFFFF14;
                 border-radius: 15px;
                 box-shadow: vars.$main-shadow;
                 overflow: hidden;
+                backdrop-filter: blur(7px);
 
                 &:hover {
-                    background: vars.$third-color;
+                    background: #FFFFFF5c;
                     box-shadow: 0 4px 24px #0000002b;
+                }
+
+                .user-state-label {
+                    margin-bottom: 15px;
+                    font-weight: 500;
+                    font-size: 10px;
+                    text-transform: uppercase;
                 }
             }
 
@@ -501,7 +526,7 @@ body {
         .title {
             margin-right: 0;
             font-size: 18px;
-            font-weight: 500;
+            font-weight: 400;
             line-height: 1.2;
             color: vars.$second-color;
         }
@@ -525,13 +550,12 @@ body {
         .info {
             margin-left: 15px;
             padding: 0 20px;
-            background: vars.$third-color !important;
+            background: #FFF !important;
         }
 
         &.user-state {
             &-label {
-                font-size: 14px !important;
-                font-weight: 500 !important;
+                font-size: 12px !important;
             }
 
             &-has_mission a {
@@ -539,15 +563,15 @@ body {
             }
 
             &-not_reached a {
-                background: linear-gradient(0deg, #ff9085, #e74c3c) !important;
+                background: #FF9085 !important;
             }
 
             &-reached a {
-                background: linear-gradient(0deg, #3ced3c, #5cb85c) !important;
+                background: #5DE284 !important;
             }
 
             &-need_accomplish a {
-                background: linear-gradient(0deg, #ffcd8d, #fc9f27) !important;
+                background: #FC9F27 !important;
             }
         }
     }
