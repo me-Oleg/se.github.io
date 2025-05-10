@@ -346,6 +346,13 @@ body {
         &.active {
             background: #FFDABB;
         }
+
+        &.active {
+            
+            svg {
+                fill: vars.$third-color !important;
+            }
+        }
     }
 
     &-point {
