@@ -17,7 +17,7 @@ function pagePreloader() {
     mainContent.classList.add("show");
     mainContent.style.opacity = 1;
     preloader.remove();
-  }, 200);
+  }, 1000);
 }
 
 function setBiggerMessage() {
