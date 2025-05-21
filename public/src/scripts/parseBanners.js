@@ -12,7 +12,7 @@ const setBanner = (() => {
 	}
 
 	async function getBanners() {
-		const lessonList = document.querySelector(".xdget-lessonList");
+		const lessonList = document.querySelector(".lesson-list");
 		const streamTable = document.querySelector(".stream-table");
 
 		if (!lessonList && !streamTable) {
@@ -35,7 +35,7 @@ const setBanner = (() => {
 			if (lessonList) {
 				lessonList.prepend(container);
 			} else if (streamTable) {
-				streamTable.append(container);
+				streamTable.prepend(container);
 			}
 		} catch (error) {
 			console.error("Ошибка getBanners: ", error);
