@@ -514,11 +514,15 @@ body {
 						-webkit-line-clamp: 2;
 
 						&:hover {
-							max-height: none !important;
+							max-height: 800px !important;
 							overflow: visible !important;
 							line-clamp: unset !important;
 							-webkit-line-clamp: unset !important;
 						}
+
+						&:not(:hover) {
+            				max-height: 70px;
+        				}
 					}
 				}
 			}
