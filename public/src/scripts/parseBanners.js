@@ -24,6 +24,9 @@ const setBanner = (() => {
 			const container = document.createElement("div");
 			container.classList.add("banner-wrapper");
 			const bannerData = await fetchBannersData();
+
+			if (!bannerData) return;
+			
 			const parser = new DOMParser();
 			const doc = parser.parseFromString(bannerData, "text/html");
 			const bannersElements = Array.from(doc.querySelectorAll(".banner-item"));
@@ -46,7 +49,7 @@ const setBanner = (() => {
 		const bannerWrapper = document.querySelector(".banner-wrapper");
 		const banners = Array.from(bannerWrapper.querySelectorAll(".banner-item"));
 
-		if (banners.length === 0) return;
+		if (!bannerWrapper) return;
 
 		let lastBanner = banners.shift();
 
@@ -63,6 +66,6 @@ const setBanner = (() => {
 
 
 document.addEventListener("DOMContentLoaded", () => {
-	setBanner.get;
-	setInterval(() => setBanner.rotate, 7000);
+	setBanner.get();
+	setInterval(() => setBanner.rotate(), 7000);
 });
