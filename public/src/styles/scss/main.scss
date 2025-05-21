@@ -187,9 +187,9 @@ body {
             right: 17px;
         }
 
-        .menu-item-img {
-            margin: 0 auto;
-        }
+        // .menu-item-img {
+        //     margin: 0 auto;
+        // }
 
         .custom-menu {
             align-items: center;
@@ -198,7 +198,7 @@ body {
             &-item {
                 align-items: center;
                 justify-content: center;
-                width: 36px;
+                // width: 36px;
 
                 &.active .custom-submenu.visible {
                     width: max-content;
@@ -217,7 +217,8 @@ body {
             }
 
             .menu-item-wrapper {
-                padding: 7px 9px;
+                // padding: 7px 9px;
+                padding: 7px 15px;
             }
         }
     }
@@ -712,6 +713,10 @@ body {
         position: relative;
 		margin-bottom: 30px;
         gap: 12px;
+
+        > div:nth-child(n+3) {
+            display: none;
+        }
 
         .lt-block-wrapper,
         .container,

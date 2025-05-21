@@ -40,9 +40,29 @@ const setBanner = (() => {
 		} catch (error) {
 			console.error("Ошибка getBanners: ", error);
 		}
-	}
+	};
 
-	return { init: getBanners };
+	const rotateBanners = () => {
+		const bannerWrapper = document.querySelector(".banner-wrapper");
+		const banners = Array.from(bannerWrapper.querySelectorAll(".banner-item"));
+
+		if (banners.length === 0) return;
+
+		let lastBanner = banners.shift();
+
+		banners.push(lastBanner);
+		bannerWrapper.innerHTML = "";
+		banners.forEach(banner => bannerWrapper.append(banner));
+	};
+
+	return { 
+		get: getBanners,
+		rotate: rotateBanners
+	};
 })();
 
-document.addEventListener("DOMContentLoaded", setBanner.init);
+
+document.addEventListener("DOMContentLoaded", () => {
+	setBanner.get;
+	setInterval(() => setBanner.rotate, 7000);
+});
