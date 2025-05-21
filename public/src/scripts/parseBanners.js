@@ -1,6 +1,8 @@
 const setBanner = (() => {
 	const url = "https://anettaschool.ru/banners-page";
 
+	if(!window.location.href.includes("/teach")) return;
+
 	async function fetchBannersData() {
 		try {
 			const response = await fetch(url);
@@ -26,7 +28,7 @@ const setBanner = (() => {
 			const bannerData = await fetchBannersData();
 
 			if (!bannerData) return;
-			
+
 			const parser = new DOMParser();
 			const doc = parser.parseFromString(bannerData, "text/html");
 			const bannersElements = Array.from(doc.querySelectorAll(".banner-item"));
