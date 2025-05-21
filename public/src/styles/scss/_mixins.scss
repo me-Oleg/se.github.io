@@ -1,23 +1,23 @@
 @mixin flex-container($direction, $wrap, $justify, $align) {
-    display: flex;
-    flex-direction: $direction;
-    flex-wrap: $wrap;
-    justify-content: $justify;
-    align-items: $align;
+	display: flex;
+	flex-direction: $direction;
+	flex-wrap: $wrap;
+	justify-content: $justify;
+	align-items: $align;
 }
 
 @mixin flex-row-nowrap-start {
-    @include flex-container(row, nowrap, flex-start, flex-start);
+	@include flex-container(row, nowrap, flex-start, flex-start);
 }
 
 @mixin flex-col-nowrap-start-between {
-    @include flex-container(column, nowrap, space-between, flex-start);
+	@include flex-container(column, nowrap, space-between, flex-start);
 }
 
 @mixin flex-col-nowrap-center-between {
-    @include flex-container(column, nowrap, space-between, center);
+	@include flex-container(column, nowrap, space-between, center);
 }
 
 @mixin flex-col-nowrap-center {
-    @include flex-container(column, nowrap, center, center);
+	@include flex-container(column, nowrap, center, center);
 }

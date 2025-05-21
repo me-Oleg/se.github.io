@@ -35,7 +35,7 @@ function addControlPanel() {
       const newSize = currentFontSize + count;
 
       if (newSize >= 12 && newSize <= 24) {
-        body.style.fontSize = newSize + "px";
+        body.style.setProperty("font-size", newSize + "px", "important");
         localStorage.setItem("fontSize", newSize);
       }
     }
@@ -43,7 +43,7 @@ function addControlPanel() {
     const savedFontSize = localStorage.getItem("fontSize");
 
     if (savedFontSize) {
-      document.querySelector("body").style.fontSize = savedFontSize + "px";
+      document.querySelector("body").style.setProperty("font-size", savedFontSize + "px", "important");
     }
 
     if (window.innerWidth <= 768) {
