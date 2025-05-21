@@ -759,6 +759,10 @@ body {
     &-item {
         flex: 0 0 48%;
         box-sizing: border-box;
+
+        @media screen and (min-width: 500px) {
+            min-height: 300px;
+        }
     }
 }
 
