@@ -743,6 +743,10 @@ body {
             object-fit: cover;
         }
 
+		.block-box {
+			box-shadow: vars.$main-shadow;
+		}
+
         @media screen and (max-width: 500px) {
             flex-direction: column;
         }
