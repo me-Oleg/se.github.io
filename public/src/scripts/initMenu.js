@@ -24,7 +24,7 @@ function setBiggerMessage() {
   const url = window.location.href;
   if(url.includes("/webinar")) {
     const input = document.querySelector("input.new-comment-input");
-    return input.maxLength = 700;
+    return input.maxLength = 1000;
   }
 }
 
