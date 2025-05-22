@@ -731,6 +731,10 @@ body {
         margin-bottom: 30px;
         gap: 12px;
 
+        * {
+          width: 100%;
+        }
+
         >div:nth-child(n+3) {
             display: none;
         }
