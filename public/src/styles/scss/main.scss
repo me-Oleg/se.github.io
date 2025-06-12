@@ -168,7 +168,7 @@ body {
     @include mixins.flex-col-nowrap-start-between;
 
     width: 200px;
-    background: #fff;
+    background: #FFF;
     transition: vars.$fast-transition;
 
     * {
@@ -183,7 +183,7 @@ body {
         &.disabled {
             width: 0;
             opacity: 0;
-            color: #fff0;
+            color: #FFF0;
         }
     }
 
@@ -215,7 +215,7 @@ body {
                     border-radius: 15px;
                     box-shadow: vars.$main-shadow;
                     left: calc(100% + 20px);
-                    background: vars.$third-color;
+                    background: #FFF;
 
                     .custom-submenu-item {
                         padding: 7px 15px;
@@ -224,7 +224,6 @@ body {
             }
 
             .menu-item-wrapper {
-                // padding: 7px 9px;
                 padding: 7px 15px;
             }
         }
@@ -280,16 +279,16 @@ body {
             height: 0;
 
             &-track {
-                background: #fff0;
+                background: #FFF0;
                 border: none;
             }
 
             &-thumb {
-                background-color: #fff0;
+                background-color: #FFF0;
                 border: none;
 
                 &:hover {
-                    background-color: #fff0;
+                    background-color: #FFF0;
                     border: none;
                 }
             }
@@ -406,13 +405,14 @@ body {
         padding: 7px 0 7px 10px;
         position: relative;
         overflow: hidden;
+        border: 1px solid #FFF0;
         border-radius: 10px;
         transition: 0.2s all linear;
 
         &:hover {
-            background: #ffd7b6;
             border-radius: 10px;
             border-left: none;
+            border: 1px solid vars.$main-color;
 
             a {
                 color: vars.$second-color;
@@ -492,7 +492,7 @@ body {
                 backdrop-filter: blur(7px);
 
                 &:hover {
-                    background: #ffffff5c;
+                    background: #FFFFFF5c;
                     box-shadow: 0 4px 24px #0000002b;
                 }
             }
@@ -550,7 +550,7 @@ body {
 
 .lesson-list {
     max-width: 500px;
-    background-color: #fff0 !important;
+    background-color: #FFF0 !important;
 
     * {
         transition: vars.$fast-transition;
@@ -600,12 +600,12 @@ body {
 
         .user-state {
             &-bg {
-                background: #fff0;
+                background: #FFF0;
 
                 .info {
                     margin-left: 15px;
                     padding: 0 20px;
-                    background: #fff !important;
+                    background: #FFF !important;
                 }
             }
 
