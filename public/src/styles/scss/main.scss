@@ -82,19 +82,26 @@ body {
     user-select: none !important;
 }
 
-.mobile-icon {
-    @include mixins.flex-col-nowrap-center-between;
+.mobile {
 
-    height: 50px;
+    &-icon {
+        @include mixins.flex-col-nowrap-center-between;
 
-    a {
-        @include mixins.flex-col-nowrap-center;
+        height: 50px;
 
-        width: 40px;
-        height: 40px;
-        margin-right: 0;
-        margin-left: auto;
-        padding: 10px 10px 0 0;
+        a {
+            @include mixins.flex-col-nowrap-center;
+
+            width: 40px;
+            height: 40px;
+            margin-right: 0;
+            margin-left: auto;
+            padding: 10px 10px 0 0;
+        }
+    }
+
+    &-menu .menu-toggle-wrapper {
+        display: none;
     }
 }
 
@@ -478,7 +485,7 @@ body {
                 height: auto;
                 margin: 0 auto;
                 padding: 20px 30px !important;
-                background: #ffffff14;
+                background: #FFF;
                 border-radius: 15px;
                 box-shadow: vars.$main-shadow;
                 overflow: hidden;
@@ -732,7 +739,7 @@ body {
         gap: 12px;
 
         * {
-          width: 100%;
+            width: 100%;
         }
 
         >div:nth-child(n+3) {
